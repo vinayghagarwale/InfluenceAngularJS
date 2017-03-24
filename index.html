@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>Influence</title>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		<script>
+		var app = angular.module('myApp', []);
+		app.controller('functionalCtrl', function($scope, $http) {
+			$http.get("Sample.json").then(function(response) {
+				$scope.myData = response.data.Nextgen.PM.functional;
+			});
+		});
+		</script>
+
+	</head>
+<body>
+<div ng-app="myApp"> 
+	<div ng-controller="functionalCtrl"> 
+		<table>
+			<tr>
+				<th>Impact Details</th>
+				<th>Product</th>
+				<th>Module</th>
+				<th>Compexity</th>
+			</tr>
+			<tr ng-repeat="x in myData">
+				<td>x.Impact</td>
+				<td>x.Product</td>
+				<td>x.Module</td>
+				<td>x.Compexity</td>
+			</tr>
+		</table>
+	</div>
+</div>
+	
+
+</body>
+</html>
