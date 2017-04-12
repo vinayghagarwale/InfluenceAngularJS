@@ -1,0 +1,65 @@
+var app = angular.module('myApp', []);
+app.controller('customersCtrl', function($scope, $http) {
+    $http({
+        method : "GET",
+        url : "http://124.124.79.181/Influence/Structure/Nodes"
+    }).then(function mySucces(response) {
+		
+		
+      $scope.myData = response.data;
+	  
+var json = response.data;
+var stringified = JSON.stringify(json);
+stringified = stringified.replace('"Name"', '"text"');
+var jsonObject = JSON.parse(stringified);
+$scope.myData1 = jsonObject;	  
+  });
+
+$(document).ready(function(){
+$('#tree-data-container').jstree({
+'plugins': ["wholerow","checkbox", "search", "conditionalselect",  "types", "changed" ],
+"types" : {
+      "default" : {
+        "icon" : "glyphicon glyphicon-thumbs-up"
+      },
+      "demo" : {
+        "icon" : "glyphicon glyphicon-chevron-right"
+      }
+     },
+'core' : {
+'data' : {
+"url" : "http://124.124.79.181/Influence/Structure/Nodes" ,
+"dataType" : "json"
+}
+},
+'search': {
+	'case_insensitive': true,
+	'show_only_matches' : true
+},
+'conditionalselect' : function (node, event) {
+	
+  return true;
+}
+});
+
+$(".search-input").keyup(function() {
+
+	var searchString = $(this).val();
+	console.log(searchString);
+	$('#tree-data-container').jstree('search', searchString);
+});
+
+$('#tree-data-container').on("changed.jstree", function (e, data) {
+  $http.get("customertable.php").then(function (response) {
+      $scope.myDataTable = response.data;
+  });
+
+});
+
+$('[data-toggle="tooltip"]').tooltip();
+});
+
+
+
+});
+
