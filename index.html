@@ -13,7 +13,7 @@
 	<script src="lib/TreeLibrary.js"></script>
   </head>
 <body data-spy="scroll" data-offset="50" ng-app = "myApp" ng-controller="customersCtrl" >
-<div class="container" background>
+<div class="container-fluid" >
 	<nav class="navbar navbar-light" style="background-color: #ffffff;">
     <div class="navbar-header">
       <img src="Logo.jpg" class="img-responsive"  alt="Cinque Terre" width = 350 >
@@ -46,7 +46,7 @@
     </div>
 </nav>
 </div>
-<div class="container"  >
+<div class="container-fluid"  >
 		  <div class="col-sm-4">
 				<div id="custom-search-input">
 					<div class="input-group col-md-12">
@@ -148,22 +148,40 @@
 		  </div>
 		</div>
 </div> 
-  <div class="modal fade" id="myModal" role="dialog">
+
+
+<div class="modal fade" id="AddNode" role="dialog">
+	<div class="modal-dialog">
+		<!-- Modal content-->
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+				<h4 class="modal-title">Add Node</h4>
+				<input type="text" class="search-input form-control input-lg" placeholder="Enter Node Name here..." id="txtsearch1" />
+			</div>
+			<div class="modal-body">
+			<!-- Add Body here-->
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default">Post</button>
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+  <div class="modal fade" id="ModifyNode" role="dialog">
     <div class="modal-dialog">
     
       <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Add Node</h4>
+          <h4 class="modal-title">Modify Node</h4>
 		  <input type="text" class="search-input form-control input-lg" placeholder="Enter Node Name here..." id="txtsearch1" />
         </div>
 		
         <div class="modal-body">
-
-		
-					
-		
 					<div class="card text-left" >
 					  <div class="card-header">
 						<ul class="nav nav-tabs card-header-tabs">
@@ -270,7 +288,7 @@
       
     </div>
   </div>
-<div class="container">
+<div class="container-fluid">
 <nav class="navbar navbar-inverse">
  <a class="navbar-brand" href="#">@ NextGen Healthcare 2017</a>
 </nav>
