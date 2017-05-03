@@ -161,6 +161,63 @@
 			</div>
 			<div class="modal-body">
 			<!-- Add Body here-->
+
+				<div class="card text-left" >
+					<div class="card-header">
+						<ul class="nav nav-tabs card-header-tabs">
+							<li class="active"><a href="#AddFunctionalTable" data-toggle="tab" style="background-color: #5DADE2;" >Functional</a></li>
+							<li><a href="#AddDatabaseTable" data-toggle="tab" style="background-color: #5DADE2;"  >Database</a></li>
+							<li><a href="#AddOthersTable" data-toggle="tab" style="background-color: #5DADE2;" >Other Details</a></li>
+						</ul>
+					</div>
+					<div class="tab-content">
+						<div class="tab-pane active" id="AddFunctionalTable" >
+							<div class="container-fluid">
+
+						        <input type="text" ng-model="data.name">
+						        <hr>
+								 <div ng-repeat="data in typistData" ng-if="typistData">
+								     <form  novalidate ng-submit="submitOffices()">
+
+      									<div>
+									        <ng-form  ng-repeat="basket in data.baskets">
+									          <div>
+									            <input type="text" ng-model="basket.customer.phone">
+									            <br>
+									            <input type="text" ng-model="basket.discount">
+									             <input type="text" ng-model="basket.orders[0].id">
+									                <input type="button" value="addOrder">
+									          </div>
+									          <hr>
+									        </ng-form>
+									      </div> 
+									    </form>
+								 </div>	
+
+								 <button ng-click="addBasket()">Add Basket</button>
+
+								  <div>
+								    <pre>{{ typistData | json }}</pre>
+								  </div>
+
+							</div>
+						</div>
+					</div>
+
+					<div class="tab-content">
+						<div class="tab-pane active" id="AddDatabaseTable" >
+
+						</div>
+					</div>
+					<div class="tab-content">
+						<div class="tab-pane active" id="AddOthersTable" >
+
+						</div>
+					</div>
+				</div>
+
+
+
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default">Post</button>
